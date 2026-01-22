@@ -3,13 +3,13 @@ import { Agent } from '@mastra/core/agent'
 import { Inject, Injectable, OnApplicationBootstrap } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino'
-import { AgentRegistration, MastraConfig, WorkflowRegistration } from './mastra.interface'
+import type { AgentRegistration, MastraConfig, WorkflowRegistration } from './mastra.interface'
 import { MastraLoggerWrapper } from './mastra.logger'
 import { MASTRA_STORAGE_PROVIDER } from './mastra.module'
 
 @Injectable()
 export class MastraService implements OnApplicationBootstrap {
-  private mastra: Mastra = null
+  private _mastra: Mastra = null
   private readonly config: MastraConfig
   private readonly agents: Record<string, Agent> = {}
   private readonly workflows: Record<string, Workflow> = {}
@@ -23,8 +23,8 @@ export class MastraService implements OnApplicationBootstrap {
     this.config = configService.get<MastraConfig>('mastra')
   }
 
-  public getMastraInstance(): Mastra {
-    return this.mastra
+  public get mastra(): Mastra {
+    return this._mastra
   }
 
   public getStorage(): MastraStorage {
@@ -64,7 +64,7 @@ export class MastraService implements OnApplicationBootstrap {
   onApplicationBootstrap() {
     this.logger.info('Mastra: Initializing Mastra (storage: %s)', this.storage ? 'Yes' : 'No')
 
-    this.mastra = new Mastra({
+    this._mastra = new Mastra({
       agents: this.agents,
       workflows: this.workflows,
       storage: this.storage,
