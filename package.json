@@ -1,16 +1,16 @@
 {
-  "name": "@nest-me-up/<your package name>",
+  "name": "@nest-me-up/mastra-nestjs",
   "version": "0.0.1",
-  "description": "Library for common NestJs components for Web or Micro Services",
+  "description": "Library for Wrapping up Mastra framwork as a nestjs modules, with opinianated agent and tool creation as well as workflow definitions, added support for integration with CopilotKit",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "keywords": [],
   "author": "ItaiH",
   "license": "MIT",
   "repository": {
-    "name": "<your package name>",
+    "name": "mastra-nestjs",
     "type": "git",
-    "url": "https://github.com/nest-me-up/<your package name>.git"
+    "url": "https://github.com/nest-me-up/mastra-nestjs.git"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
@@ -24,7 +24,18 @@
     "test:component": "service_config='src/utils/config/test.yml' jest --config test/component/config/jest-component-test.json --runInBand --forceExit --detectOpenHandles",
     "test:component-ci": "service_config='src/utils/config/ci.yml' jest --config test/component/config/jest-component-test.json --runInBand --forceExit"
   },
+  "peerDependencies": {
+    "@mastra/client-js": ">=0.12.0",
+    "@mastra/core": ">=0.20.0",
+    "@mastra/loggers": ">=0.10.0",
+    "@mastra/memory": ">=0.15.0",
+    "@nest-me-up/common": ">=1.0.0"
+  },
   "devDependencies": {
+    "@mastra/core": "^0.24.9",
+    "@mastra/loggers": "^0.10.19",
+    "@mastra/memory": "^0.15.13",
+    "@nest-me-up/common": "^1.0.14",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.0.3",
     "eslint": "^9.39.2",
