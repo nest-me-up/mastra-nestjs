@@ -25,7 +25,6 @@
     "test:component-ci": "service_config='src/utils/config/ci.yml' jest --config test/component/config/jest-component-test.json --runInBand --forceExit"
   },
   "peerDependencies": {
-    "@mastra/client-js": ">=0.12.0",
     "@mastra/core": ">=0.20.0",
     "@mastra/loggers": ">=0.10.0",
     "@mastra/memory": ">=0.15.0",
