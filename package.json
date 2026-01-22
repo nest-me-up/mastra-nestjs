@@ -1,6 +1,6 @@
 {
   "name": "@nest-me-up/mastra-nestjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Library for Wrapping up Mastra framwork as a nestjs modules, with opinianated agent and tool creation as well as workflow definitions, added support for integration with CopilotKit",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
