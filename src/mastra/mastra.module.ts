@@ -1,12 +1,18 @@
+import { MastraStorage } from '@mastra/core'
 import { ContextModule } from '@nest-me-up/common'
 import { Module } from '@nestjs/common'
+import { MASTRA_STORAGE_PROVIDER } from './mastra.constants'
 import { MastraService } from './mastra.service'
-import { MastraStorage } from '@mastra/core'
 
-export const MASTRA_STORAGE_PROVIDER = 'MASTRA_STORAGE'
 @Module({
   imports: [ContextModule],
-  providers: [MastraService],
+  providers: [
+    {
+      provide: MASTRA_STORAGE_PROVIDER,
+      useValue: null,
+    },
+    MastraService,
+  ],
   exports: [MastraService],
 })
 export class MastraModule {

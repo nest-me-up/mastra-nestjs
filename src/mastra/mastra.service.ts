@@ -3,9 +3,9 @@ import { Agent } from '@mastra/core/agent'
 import { Inject, Injectable, OnApplicationBootstrap } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino'
+import { MASTRA_STORAGE_PROVIDER } from './mastra.constants'
 import type { AgentRegistration, MastraConfig, WorkflowRegistration } from './mastra.interface'
 import { MastraLoggerWrapper } from './mastra.logger'
-import { MASTRA_STORAGE_PROVIDER } from './mastra.module'
 
 @Injectable()
 export class MastraService implements OnApplicationBootstrap {
