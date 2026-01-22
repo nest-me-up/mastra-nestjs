@@ -68,7 +68,7 @@ export class MastraService implements OnApplicationBootstrap {
       agents: this.agents,
       workflows: this.workflows,
       storage: this.storage,
-      logger: new MastraLoggerWrapper(this.logger, this.config.logger?.level || 'debug'),
+      logger: new MastraLoggerWrapper(this.logger, this.config?.logger?.level || 'debug'),
     })
 
     this.logger.info('Mastra: Mastra initialized')
